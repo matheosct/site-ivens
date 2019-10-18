@@ -1,3 +1,7 @@
+* {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -19,6 +23,42 @@ p, li {
 .nav-item a {
     font-size: 14px;
     color: #FFF;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.nav-item a:before, .nav-item a:after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0; right: 0;
+    height: 2px;
+    background-color: rgb(36, 150, 202);
+}
+
+.nav-item a:before {
+    opacity: 0;
+    transform: translateY(- 8px);
+    transition: transform 0s ease-out, opacity 0s;
+}
+
+.nav-item a:after {
+    opacity: 0;
+    transform: translateY(8px/2);
+    transition: transform 0.3s ease-out, opacity 0.3s;
+}
+
+.nav-item a:hover:before, .nav-item a:hover:after, .nav-item a:focus:before, .nav-item a:focus:after {
+    opacity: 1;
+    transform: translateY(8px);
+}
+
+.nav-item a:hover:before, .nav-item a:focus:before {
+    transition: transform 0.3s ease-out, opacity 0.3s;
+}
+
+.nav-item a:hover:after, .nav-item a:focus:after {
+    transition: transform 0s 0.3s ease-out, opacity 0s 0.3s;
 }
 
 .banner {
@@ -40,6 +80,14 @@ p, li {
     border-radius: 10px;
     width: 180px;
     height: 35px;
+    transition-duration: 0.4s;
+    transition-property: color, rgb(36, 150, 202);
+}
+
+.banner button:hover, .banner button:focus, .banner button:active {
+    background-color: rgb(36, 150, 202);
+    color: #FFF;
+    border: rgb(36, 150, 202);
 }
 
 .banner .contato-btn {
@@ -50,7 +98,7 @@ p, li {
 
 .banner .saiba-btn {
     color: #001C5E;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.4);
     border: solid 2px #001C5E;
 }
 
@@ -71,7 +119,7 @@ p, li {
 
 .caixa {
     border-radius: 5px;
-    box-shadow: 0px 0px 35px -10px rgba(0,0,0,0.55);;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.55);;
 }
 
 .clientes {
@@ -83,11 +131,22 @@ p, li {
 }
 
 .carousel {
-    height: 40vh;
+    height: 30vh;
 }
 
 .carousel img {
-    height: 150px;
+    height: 60px;
+    width: auto;
+    max-width: 220px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 60px;
+  width: 60px;
+  background-size: 100%, 100%;
+  background-color: #2E2E2E;
+  padding: 1em;
 }
 
 .contato {
@@ -122,4 +181,18 @@ footer p {
 
 footer i {
     font-size: 32px;
+}
+
+.float{
+	position: fixed;
+	width: 80px;
+	height: 80px;
+	bottom: 50px;
+	right: 50px;
+	background-color: #25d366;
+	color: #FFF;
+	border-radius: 50%;
+    font-size: 42px;
+	box-shadow: 2px 2px 3px rgba(153, 153, 153, 0.4);
+    z-index: 100;
 }
